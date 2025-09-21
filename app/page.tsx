@@ -326,7 +326,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="border-t border-white/10 mt-8 pt-8 text-center text-white/40">
-            <p>&copy; 2024 BoostACart. All rights reserved.</p>
+            <p>© 2025 BoostACart. All rights reserved.</p>
           </div>
         </div>
       </footer>
