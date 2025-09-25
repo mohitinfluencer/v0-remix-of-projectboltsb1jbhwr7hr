@@ -77,22 +77,22 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <HeroGeometric badge="Lead Generation Platform" title1="Capture More Leads" title2="at Checkout" />
+      <HeroGeometric badge="Lead Generation Platform" title1="Stop Losing Sales to" title2="Abandoned Carts" />
 
       {/* Action Buttons Section */}
       <section className="py-16 bg-[#030303] relative">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent"></div>
         <div className="max-w-4xl mx-auto text-center px-4 relative">
           <p className="text-xl text-white/70 mb-8 leading-relaxed">
-            Transform abandoned carts into valuable leads with customizable widgets. No technical setup required - just
-            add your domain and start capturing leads.
+            Most visitors click Add to Cart but leave before checkout. BoostACart captures their details instantly, so
+            you can follow up and recover lost sales.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/dashboard"
               className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transform hover:-translate-y-0.5 flex items-center justify-center"
             >
-              Try Live Demo
+              Start Free Trial
             </Link>
             <button className="px-8 py-4 bg-white/10 text-white rounded-xl hover:bg-white/20 transition-all duration-300 font-semibold text-lg shadow-lg border border-white/20 flex items-center justify-center backdrop-blur-sm hover:border-white/30">
               Watch Video
@@ -106,9 +106,9 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/5 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Why Choose BoostACart?</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">How It Works</h2>
             <p className="text-xl text-white/60 max-w-3xl mx-auto">
-              Everything you need to turn checkout abandonment into your competitive advantage.
+              Simple 3-step process to turn abandoned carts into valuable leads
             </p>
           </div>
 
@@ -117,9 +117,9 @@ export default function LandingPage() {
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300">
                 <ZapIcon />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Instant Setup</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Lead Capture at Add-to-Cart</h3>
               <p className="text-white/60 leading-relaxed">
-                No coding required. Just enter your domain and your widget is ready to capture leads.
+                Customer clicks Add to Cart → BoostACart widget pops up and never lose anonymous shoppers again.
               </p>
             </div>
 
@@ -127,9 +127,10 @@ export default function LandingPage() {
               <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg shadow-green-500/25 group-hover:shadow-green-500/40 transition-all duration-300">
                 <TrendingUpIcon />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Real-time Analytics</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Customizable Widget</h3>
               <p className="text-white/60 leading-relaxed">
-                Track lead generation with beautiful charts and detailed insights.
+                Collects Name, Email, or Phone → customer details saved in your dashboard. Change text, colors, and
+                design to match your brand.
               </p>
             </div>
 
@@ -137,9 +138,10 @@ export default function LandingPage() {
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg shadow-purple-500/25 group-hover:shadow-purple-500/40 transition-all duration-300">
                 <UsersIcon />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Smart Lead Capture</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Smart Dashboard</h3>
               <p className="text-white/60 leading-relaxed">
-                Auto-detect product details and collect qualified leads at the perfect moment.
+                Redirects to Checkout or Shows Discount → you keep them moving towards purchase. Track leads, monthly
+                limits, and plan status.
               </p>
             </div>
 
@@ -147,9 +149,9 @@ export default function LandingPage() {
               <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg shadow-orange-500/25 group-hover:shadow-orange-500/40 transition-all duration-300">
                 <ShoppingCartIcon />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Customizable Widgets</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Exit-Intent Popup</h3>
               <p className="text-white/60 leading-relaxed">
-                Brand your widgets with custom colors, text and styling options.
+                Catch visitors before they leave your store and turn them into leads you can follow up with.
               </p>
             </div>
 
@@ -157,9 +159,10 @@ export default function LandingPage() {
               <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg shadow-teal-500/25 group-hover:shadow-teal-500/40 transition-all duration-300">
                 <TrendingUpIcon />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Multi-Store Support</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Follow-Up Ready</h3>
               <p className="text-white/60 leading-relaxed">
-                Manage multiple stores from one central dashboard with unified analytics.
+                Export leads for WhatsApp, SMS, or sales calls. Increase conversions by 20–30% and reduce cost per
+                purchase.
               </p>
             </div>
 
@@ -167,9 +170,10 @@ export default function LandingPage() {
               <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6 text-white shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/40 transition-all duration-300">
                 <ZapIcon />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Flexible Plans</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Why BoostACart?</h3>
               <p className="text-white/60 leading-relaxed">
-                Start free and scale with usage-based pricing that grows with your business.
+                Ad spend is expensive. Purchases are fewer than Add-to-Carts. Without customer details, you can't
+                recover those carts.
               </p>
             </div>
           </div>
@@ -181,17 +185,17 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
-            <p className="text-xl text-white/60">Choose the plan that fits your business needs</p>
+            <h2 className="text-4xl font-bold text-white mb-4">Choose the plan that fits your store</h2>
+            <p className="text-xl text-white/60">Capture more leads from the same ad budget</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Free Plan */}
             <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">Free</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Free Plan</h3>
                 <div className="text-4xl font-bold text-white mb-2">$0</div>
-                <p className="text-white/60">Perfect for testing</p>
+                <p className="text-white/60">Try it risk-free</p>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center">
@@ -217,7 +221,7 @@ export default function LandingPage() {
                 href="/auth/sign-up"
                 className="w-full py-3 px-4 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-all duration-300 font-medium text-center block border border-white/20 hover:border-white/30 backdrop-blur-sm"
               >
-                Get Started
+                Start Free Trial
               </Link>
             </div>
 
@@ -229,9 +233,9 @@ export default function LandingPage() {
                 </span>
               </div>
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">Starter</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Starter Plan</h3>
                 <div className="text-4xl font-bold text-white mb-2">$29</div>
-                <p className="text-white/60">per month</p>
+                <p className="text-white/60">For growing stores</p>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center">
@@ -266,9 +270,9 @@ export default function LandingPage() {
             {/* Pro Plan */}
             <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">Pro</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Pro Plan</h3>
                 <div className="text-4xl font-bold text-white mb-2">$99</div>
-                <p className="text-white/60">per month</p>
+                <p className="text-white/60">For scaling brands with heavy traffic</p>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center">
@@ -299,6 +303,19 @@ export default function LandingPage() {
                 Contact Sales
               </a>
             </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <h3 className="text-2xl font-bold text-white mb-4">Still on the fence?</h3>
+            <p className="text-xl text-white/70 mb-8">
+              Try BoostACart free and see how many sales you recover this week.
+            </p>
+            <Link
+              href="/auth/sign-up"
+              className="inline-flex px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transform hover:-translate-y-0.5"
+            >
+              Start Free Trial →
+            </Link>
           </div>
         </div>
       </section>
