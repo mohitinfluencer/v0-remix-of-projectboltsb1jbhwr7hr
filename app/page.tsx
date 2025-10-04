@@ -1,6 +1,8 @@
 "use client"
 import Link from "next/link"
 import { HeroGeometric } from "@/components/ui/shape-landing-hero"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Menu } from "lucide-react"
 
 const ShoppingCartIcon = () => (
   <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -44,7 +46,7 @@ const CheckIcon = () => (
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#030303]">
+    <div className="min-h-screen bg-[#030303] overflow-x-hidden">
       {/* Header */}
       <header className="bg-black/20 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,7 +57,7 @@ export default function LandingPage() {
               </div>
               <span className="text-2xl font-bold text-white">BoostACart</span>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-4">
               <Link
                 href="/contact"
                 className="px-4 py-2 text-white/80 hover:text-blue-400 font-medium transition-colors border border-white/20 rounded-lg hover:border-blue-400/50 hover:bg-white/5 backdrop-blur-sm"
@@ -71,6 +73,44 @@ export default function LandingPage() {
               >
                 Get Started
               </Link>
+            </div>
+            <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <button
+                    aria-label="Open menu"
+                    className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-white/20 text-white/80 hover:text-white hover:border-white/30 hover:bg-white/5 transition-colors"
+                  >
+                    <Menu className="h-5 w-5" />
+                    <span className="text-sm">Menu</span>
+                  </button>
+                </SheetTrigger>
+                <SheetContent side="right" className="bg-[#030303]/95 border-white/10">
+                  <SheetHeader>
+                    <SheetTitle className="text-white">Menu</SheetTitle>
+                  </SheetHeader>
+                  <div className="mt-6 flex flex-col gap-3">
+                    <Link
+                      href="/contact"
+                      className="w-full px-4 py-3 text-white/80 hover:text-blue-400 font-medium transition-colors border border-white/20 rounded-lg hover:border-blue-400/50 hover:bg-white/5 backdrop-blur-sm text-center"
+                    >
+                      Contact Us
+                    </Link>
+                    <Link
+                      href="/auth/login"
+                      className="w-full px-4 py-3 text-white/80 hover:text-white transition-colors border border-white/20 rounded-lg hover:border-white/30 text-center"
+                    >
+                      Sign In
+                    </Link>
+                    <Link
+                      href="/auth/sign-up"
+                      className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-medium shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 text-center"
+                    >
+                      Get Started
+                    </Link>
+                  </div>
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>
