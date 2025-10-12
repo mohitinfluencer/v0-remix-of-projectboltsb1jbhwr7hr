@@ -51,6 +51,46 @@ export default function WidgetPage() {
       try {
         console.log("[v0] Looking for store with parameter:", storeParam)
 
+        // 0) Try the server API first (works anywhere, bypasses RLS with safe response)
+        try {
+          const apiRes = await fetch(`/api/widget-store?store=${encodeURIComponent(storeParam)}`, { cache: "no-store" })
+          if (apiRes.ok) {
+            const apiJson = await apiRes.json()
+            console.log("[v0] ✅ Found store via server API")
+
+            // Map API shape to local Store interface
+            setStore({
+              id: apiJson.id,
+              name: apiJson.name,
+              domain: apiJson.domain,
+              plan: apiJson.plan,
+              remainingLeads: apiJson.remaining_leads,
+              maxLeads: apiJson.max_leads,
+              widgetSettings: {
+                heading: apiJson.widget_settings.heading,
+                description: apiJson.widget_settings.description,
+                buttonText: apiJson.widget_settings.button_text,
+                backgroundColor: apiJson.widget_settings.background_color,
+                textColor: apiJson.widget_settings.text_color,
+                buttonColor: apiJson.widget_settings.button_color,
+                overlayOpacity: apiJson.widget_settings.overlay_opacity,
+                isActive: apiJson.widget_settings.is_active,
+                showEmail: apiJson.widget_settings.show_email,
+                showPhone: apiJson.widget_settings.show_phone,
+                discountCode: apiJson.widget_settings.discount_code,
+                redirectUrl: apiJson.widget_settings.redirect_url || undefined,
+                showCouponPage: apiJson.widget_settings.show_coupon_page,
+              },
+            })
+            setLoading(false)
+            return
+          } else {
+            console.log("[v0] Server API lookup did not find store, falling back to client Supabase lookups")
+          }
+        } catch (apiErr) {
+          console.log("[v0] Server API lookup error, falling back to client Supabase:", apiErr)
+        }
+
         const variations = getStoreVariations(storeParam)
         console.log("[v0] Store variations:", variations)
 
