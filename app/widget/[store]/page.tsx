@@ -417,8 +417,8 @@ export default function WidgetPage() {
       const leadData: any = {
         store_id: store.id,
         name: formData.name.trim(),
-        detected_product: detectedProduct || "Product",
         product: detectedProduct || "Product",
+        ...(typeof window !== "undefined" ? { source_url: window.location.href } : {}),
       }
 
       // Only include email if the field is enabled and has a value
