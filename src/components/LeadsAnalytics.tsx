@@ -18,20 +18,6 @@ const LeadsAnalytics: React.FC<LeadsAnalyticsProps> = ({ store, leads: initialLe
   const [loading, setLoading] = useState(true)
   const supabase = createClient()
 
-  const resolveProductName = (lead: any) => {
-    const primary = (lead?.detected_product || lead?.product || "").toString().trim()
-    if (primary) return primary
-    try {
-      if (lead?.source_url) {
-        const url = new URL(lead.source_url)
-        const q =
-          url.searchParams.get("product_name") || url.searchParams.get("title") || url.searchParams.get("product")
-        if (q) return decodeURIComponent(q)
-      }
-    } catch {}
-    return "Unknown Product"
-  }
-
   useEffect(() => {
     const fetchLeads = async () => {
       if (!store?.id) return
@@ -111,7 +97,7 @@ const LeadsAnalytics: React.FC<LeadsAnalyticsProps> = ({ store, leads: initialLe
   // Product analysis
   const productLeads = leads.reduce(
     (acc, lead) => {
-      const product = resolveProductName(lead)
+      const product = lead.detected_product || "Unknown Product"
       acc[product] = (acc[product] || 0) + 1
       return acc
     },
@@ -137,7 +123,7 @@ const LeadsAnalytics: React.FC<LeadsAnalyticsProps> = ({ store, leads: initialLe
       lead.name || "",
       lead.email || "",
       lead.phone || "",
-      resolveProductName(lead),
+      lead.detected_product || "Unknown Product",
       new Date(lead.created_at).toLocaleString(),
     ])
 
@@ -314,9 +300,7 @@ const LeadsAnalytics: React.FC<LeadsAnalyticsProps> = ({ store, leads: initialLe
                       <div className="text-gray-300">{lead.phone || "N/A"}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-gray-300 truncate max-w-[220px]" title={resolveProductName(lead)}>
-                        {resolveProductName(lead)}
-                      </div>
+                      <div className="text-gray-300">{lead.detected_product || "Unknown Product"}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-gray-400 text-sm">{new Date(lead.created_at).toLocaleString()}</div>
