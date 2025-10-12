@@ -91,6 +91,41 @@ export default function WidgetPage() {
           console.log("[v0] Server API lookup error, falling back to client Supabase:", apiErr)
         }
 
+        try {
+          const { data: rpcData, error: rpcError } = await supabase.rpc("get_public_store", { p_store: storeParam })
+          if (!rpcError && rpcData) {
+            const s = rpcData as any
+            setStore({
+              id: s.id,
+              name: s.name,
+              domain: s.domain,
+              plan: s.plan,
+              remainingLeads: s.remaining_leads,
+              maxLeads: s.max_leads,
+              widgetSettings: {
+                heading: s.widget_settings?.heading,
+                description: s.widget_settings?.description,
+                buttonText: s.widget_settings?.button_text,
+                backgroundColor: s.widget_settings?.background_color,
+                textColor: s.widget_settings?.text_color,
+                buttonColor: s.widget_settings?.button_color,
+                overlayOpacity: s.widget_settings?.overlay_opacity,
+                isActive: s.widget_settings?.is_active,
+                showEmail: s.widget_settings?.show_email,
+                showPhone: s.widget_settings?.show_phone,
+                discountCode: s.widget_settings?.discount_code,
+                redirectUrl: s.widget_settings?.redirect_url || undefined,
+                showCouponPage: s.widget_settings?.show_coupon_page,
+              },
+            })
+            console.log("[v0] ✅ Found store via Supabase RPC")
+            setLoading(false)
+            return
+          }
+        } catch (rpcErr) {
+          console.log("[v0] RPC lookup error (get_public_store):", rpcErr)
+        }
+
         const variations = getStoreVariations(storeParam)
         console.log("[v0] Store variations:", variations)
 
@@ -333,8 +368,12 @@ export default function WidgetPage() {
       loadStore()
     }
 
-    const productName = searchParams.get("product") || searchParams.get("title") || "Product"
-    setDetectedProduct(productName)
+    const productNameFromParams =
+      decodeURIComponent(searchParams.get("product_name") || "") ||
+      decodeURIComponent(searchParams.get("title") || "") ||
+      decodeURIComponent(searchParams.get("product") || "") ||
+      "Product"
+    setDetectedProduct(productNameFromParams)
   }, [storeParam, searchParams, supabase])
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -379,6 +418,7 @@ export default function WidgetPage() {
         store_id: store.id,
         name: formData.name.trim(),
         detected_product: detectedProduct || "Product",
+        product: detectedProduct || "Product",
       }
 
       // Only include email if the field is enabled and has a value
