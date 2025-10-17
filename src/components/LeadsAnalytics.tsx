@@ -300,7 +300,9 @@ const LeadsAnalytics: React.FC<LeadsAnalyticsProps> = ({ store, leads: initialLe
                       <div className="text-gray-300">{lead.phone || "N/A"}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-gray-300">{lead.detected_product || "Unknown Product"}</div>
+                      <div className="text-gray-300" title={lead.detected_product || "Unknown Product"}>
+                        {lead.detected_product || "Unknown Product"}
+                      </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-gray-400 text-sm">{new Date(lead.created_at).toLocaleString()}</div>
