@@ -210,24 +210,24 @@ export default function Dashboard() {
       {/* Header */}
       <div className="bg-white/10 backdrop-blur-md border-b border-white/20 shadow-lg relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-4">
-              <div>
-                <h1 className="text-xl font-bold text-white">{store.name}</h1>
-                <p className="text-sm text-gray-300">{store.domain}</p>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 py-4 sm:py-0 sm:h-16">
+            <div className="flex items-center space-x-4 w-full sm:w-auto">
+              <div className="min-w-0">
+                <h1 className="text-lg sm:text-xl font-bold text-white truncate">{store.name}</h1>
+                <p className="text-xs sm:text-sm text-gray-300 truncate">{store.domain}</p>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 text-gray-300">
-                <User className="h-4 w-4" />
-                <span className="text-sm">{user?.email}</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+              <div className="flex items-center space-x-2 text-gray-300 text-xs sm:text-sm">
+                <User className="h-4 w-4 flex-shrink-0" />
+                <span className="truncate">{user?.email}</span>
               </div>
               <button
                 onClick={handleSignOut}
-                className="flex items-center space-x-2 px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300"
+                className="flex items-center space-x-2 px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 text-sm w-full sm:w-auto justify-center sm:justify-start"
               >
-                <LogOut className="h-4 w-4" />
-                <span className="text-sm">Sign Out</span>
+                <LogOut className="h-4 w-4 flex-shrink-0" />
+                <span>Sign Out</span>
               </button>
             </div>
           </div>
@@ -235,12 +235,12 @@ export default function Dashboard() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="bg-white/5 backdrop-blur-sm border-b border-white/10 relative z-10">
+      <div className="bg-white/5 backdrop-blur-sm border-b border-white/10 relative z-10 overflow-x-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8">
+          <div className="flex space-x-4 sm:space-x-8 min-w-max sm:min-w-0">
             <button
               onClick={() => setActiveTab("analytics")}
-              className={`py-4 px-1 border-b-2 font-medium text-sm transition-all duration-300 ${
+              className={`py-4 px-2 sm:px-1 border-b-2 font-medium text-xs sm:text-sm transition-all duration-300 whitespace-nowrap ${
                 activeTab === "analytics"
                   ? "border-blue-400 text-blue-400"
                   : "border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500"
@@ -250,7 +250,7 @@ export default function Dashboard() {
             </button>
             <button
               onClick={() => setActiveTab("customization")}
-              className={`py-4 px-1 border-b-2 font-medium text-sm transition-all duration-300 ${
+              className={`py-4 px-2 sm:px-1 border-b-2 font-medium text-xs sm:text-sm transition-all duration-300 whitespace-nowrap ${
                 activeTab === "customization"
                   ? "border-blue-400 text-blue-400"
                   : "border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500"
@@ -263,7 +263,7 @@ export default function Dashboard() {
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-8 relative z-10">
         {activeTab === "analytics" && <LeadsAnalytics store={storeWithSettings} leads={[]} />}
         {activeTab === "customization" && (
           <WidgetCustomization store={storeWithSettings} onUpdateWidget={onUpdateWidget} />
