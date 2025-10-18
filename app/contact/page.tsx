@@ -66,11 +66,11 @@ export default function ContactPage() {
                 </div>
               </div>
               <a
-                href="mailto:boostacart77@gmail.com"
+                href="mailto:boostacart@gmail.com"
                 className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-medium flex items-center justify-center space-x-2 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
               >
                 <Mail className="h-5 w-5" />
-                <span>boostacart77@gmail.com</span>
+                <span>boostacart@gmail.com</span>
               </a>
             </div>
 
