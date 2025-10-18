@@ -333,7 +333,9 @@ export default function WidgetPage() {
       loadStore()
     }
 
-    const productName = searchParams.get("product") || searchParams.get("title") || "Product"
+    const productName =
+      searchParams.get("product_name") || searchParams.get("product") || searchParams.get("title") || "Product"
+    console.log("[v0] Detected product from URL:", productName)
     setDetectedProduct(productName)
   }, [storeParam, searchParams, supabase])
 
@@ -344,6 +346,7 @@ export default function WidgetPage() {
     console.log("[v0] Form submission started")
     console.log("[v0] Widget settings:", store.widgetSettings)
     console.log("[v0] Form data:", formData)
+    console.log("[v0] Detected product:", detectedProduct)
 
     if (store.remainingLeads <= 0) {
       setError(`Lead limit reached for ${store.plan} plan. Please upgrade to continue collecting leads.`)
@@ -379,6 +382,7 @@ export default function WidgetPage() {
         store_id: store.id,
         name: formData.name.trim(),
         detected_product: detectedProduct || "Product",
+        product_name: detectedProduct || "Product", // Save to both fields for compatibility
       }
 
       // Only include email if the field is enabled and has a value
