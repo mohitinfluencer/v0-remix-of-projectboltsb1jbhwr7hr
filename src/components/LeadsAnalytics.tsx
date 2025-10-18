@@ -94,10 +94,14 @@ const LeadsAnalytics: React.FC<LeadsAnalyticsProps> = ({ store, leads: initialLe
     }
   })
 
+  const resolveProductName = (lead: any): string => {
+    return lead.product_name || lead.detected_product || "Unknown Product"
+  }
+
   // Product analysis
   const productLeads = leads.reduce(
     (acc, lead) => {
-      const product = lead.detected_product || "Unknown Product"
+      const product = resolveProductName(lead)
       acc[product] = (acc[product] || 0) + 1
       return acc
     },
@@ -123,7 +127,7 @@ const LeadsAnalytics: React.FC<LeadsAnalyticsProps> = ({ store, leads: initialLe
       lead.name || "",
       lead.email || "",
       lead.phone || "",
-      lead.detected_product || "Unknown Product",
+      resolveProductName(lead),
       new Date(lead.created_at).toLocaleString(),
     ])
 
@@ -300,8 +304,8 @@ const LeadsAnalytics: React.FC<LeadsAnalyticsProps> = ({ store, leads: initialLe
                       <div className="text-gray-300">{lead.phone || "N/A"}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-gray-300" title={lead.detected_product || "Unknown Product"}>
-                        {lead.detected_product || "Unknown Product"}
+                      <div className="text-gray-300" title={resolveProductName(lead)}>
+                        {resolveProductName(lead)}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
